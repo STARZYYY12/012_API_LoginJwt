@@ -11,3 +11,13 @@ app.
 listen(port, () => {
     console.log(`Server is start on http://localhost:${3000}`);
 });
+
+db.sequelize.sync()
+    .then(() => {
+        app.listen(3000, () => {
+            console.log('Server started');
+        });
+    })
+    .catch((err) => {
+        console.log('Err');
+    });
